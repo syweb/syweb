@@ -5,3 +5,10 @@ require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
 Syweb::Application.load_tasks
+
+begin
+  require 'vlad'
+  Vlad.load :scm => :git, :web => nil
+rescue LoadError
+  # do nothing
+end

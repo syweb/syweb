@@ -1,0 +1,6 @@
+set :application, "syweb"
+set :repository,  "git@github.com:syweb/syweb.git"
+set :user,        "ubuntu"
+set :domain,      "#{user}@dev-schoolyardapp.com"
+set :deploy_to,   "/mnt/apps/#{application}"
+set :revision,    "origin/master"
