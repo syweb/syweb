@@ -76,6 +76,12 @@ GEM
       highline (>= 1.6.1)
       json (>= 1.4.6)
       rest-client (>= 1.6.1)
+    capistrano (2.6.0)
+      highline
+      net-scp (>= 1.0.0)
+      net-sftp (>= 2.0.0)
+      net-ssh (>= 2.0.14)
+      net-ssh-gateway (>= 1.1.0)
     closure-compiler (1.1.1)
     configuration (1.2.0)
     crack (0.1.8)
@@ -115,7 +121,7 @@ GEM
     heroku (1.19.1)
       activesupport (>= 2.1.0)
       launchy (~> 0.3.2)
-      rest-client (>= 1.4.0, < 1.7.0)
+      rest-client (< 1.7.0, >= 1.4.0)
     highline (1.6.2)
     httparty (0.7.7)
       crack (= 0.1.8)
@@ -156,9 +162,15 @@ GEM
       mongo (~> 1.2)
       tzinfo (~> 0.3.22)
       will_paginate (~> 3.0.pre)
+    net-scp (1.0.4)
+      net-ssh (>= 1.99.1)
+    net-sftp (2.0.5)
+      net-ssh (>= 2.0.9)
     net-ssh (2.0.24)
+    net-ssh-gateway (1.1.0)
+      net-ssh (>= 1.99.1)
     nokogiri (1.4.3.1)
-    open4 (1.0.1)
+    open4 (0.9.6)
     polyglot (0.3.1)
     proxies (0.2.1)
     rack (1.2.2)
@@ -196,10 +208,6 @@ GEM
     unicorn (3.6.2)
       kgio (~> 2.3)
       rack
-    vlad (1.4.0)
-      open4
-      rake (>= 0.8.1)
-    vlad-git (2.1.0)
     warden (0.10.7)
       rack (>= 1.0.0)
     will_paginate (3.0.pre2)
@@ -210,9 +218,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  capistrano
   locomotive_cms!
   rails (= 3.0.7)
   sqlite3
   unicorn
-  vlad
-  vlad-git
