@@ -9,7 +9,7 @@ defaults: &defaults
 
 development:
   <<: *defaults
-  database: locomotive_dev
+  database: locomotive_temp_dev
 
 test:
   <<: *defaults
@@ -17,8 +17,8 @@ test:
 
 # set these environment variables on your prod server
 production:
-  # <<: *defaults
-  # database: locomotive_prod
+  <<: *defaults
+  database: locomotive_dev
 
   # other settings for production
   # host: <%= ENV['MONGOID_HOST'] %>
