@@ -11,6 +11,8 @@ module Syweb
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+    
+    APP_CONFIG = YAML.load_file("/mnt/apps/syweb/shared/config.yml")
 
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras)
@@ -32,6 +34,17 @@ module Syweb
 
     # JavaScript files you want as :defaults (application.js is always included).
     # config.action_view.javascript_expansions[:defaults] = %w(jquery rails)
+    
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      :address              => "smtp.mailgun.org",
+      :port                 => 587,
+      :domain               => 'beehivelymail.com',
+      :user_name            => 'no-reply@beehivelymail.com',
+      :password             => APP_CONFIG['smtp_password'],
+      :authentication       => 'plain',
+      :enable_starttls_auto => true  
+    }
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"

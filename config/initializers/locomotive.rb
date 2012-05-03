@@ -58,5 +58,5 @@ Locomotive.configure do |config|
   # Ex:
   # config.mailer_sender = 'support'
   # # => 'support@heroku.com' (Heroku), 'support@bushi.do' (Bushido), 'support@example.com' (Dev) or 'support@<your_hosting_platform>' (Multi-sites)
-  config.mailer_sender = 'support@schoolyardapp.com'
+  config.mailer_sender = 'no-reply@beehivelymail.com'
 end
