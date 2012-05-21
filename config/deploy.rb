@@ -26,3 +26,15 @@ role :db,  "insightmethods.info", :primary => true # This is where Rails migrati
 #     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
 #   end
 # end
+
+namespace :deploy do
+  desc "Symlink shared resources on each release - not used"
+  task :symlink_shared, :roles => :app do
+    run "ln -nfs #{shared_path}/sites #{release_path}/public/sites"
+    run "ln -nfs #{shared_path}/assets #{release_path}/public/assets"
+  end
+end
+
+after 'deploy:symlink', 'deploy:symlink_shared'
+
+# rvmsudo passenger start -e production -p 80 --user=ubuntu
